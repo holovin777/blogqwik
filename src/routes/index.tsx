@@ -1,16 +1,30 @@
 import { component$ } from "@builder.io/qwik";
-import type { DocumentHead } from "@builder.io/qwik-city";
+import { routeLoader$, type DocumentHead } from "@builder.io/qwik-city";
+import Navbar from "~/components/navbar/navbar";
+import type UserProps from "~/interfaces/UserProps";
+
+export const useUser = routeLoader$(async () => {
+  const response = await fetch(`https://${import.meta.env.PUBLIC_GITHUB_URL}/users/${import.meta.env.PUBLIC_GITHUB_LOGIN}`, {
+    headers: {
+      Accept: 'application/json',
+      Authorization: import.meta.env.GITHUB_TOKEN,
+    },
+  });
+  return (await response.json()) as UserProps;
+});
 
 export default component$(() => {
+  const userSignal = useUser();
   return (
-    <>
-      <h1>Hi 👋</h1>
-      <p>
-        Can't wait to see what you build with qwik!
-        <br />
-        Happy coding.
-      </p>
-    </>
+    <div class="">
+      <Navbar
+        login={userSignal.value.login}
+        avatar_url={userSignal.value.avatar_url}
+      />
+      <div class="text-3xl font-bold p-4">
+        {userSignal.value.bio}
+      </div>
+    </div>
   );
 });
 
