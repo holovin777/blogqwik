@@ -5,7 +5,7 @@ export default component$<HeaderProps>((props) => {
 
     return (
 
-        <div class="text-4xl text-center p-4">{props.title}</div>
+        <h1 class="header">{props.title}</h1>
 
     );
 });

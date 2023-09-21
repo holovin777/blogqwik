@@ -5,30 +5,31 @@ import Navbar from "~/components/navbar/navbar";
 import type RepoProps from "~/interfaces/RepoProps";
 
 export const useRepos = routeLoader$(async () => {
-  const response = await fetch(`https://${import.meta.env.PUBLIC_GITHUB_URL}/users/${import.meta.env.PUBLIC_GITHUB_LOGIN}/repos`, {
+  const res = await fetch(`https://${import.meta.env.PUBLIC_GITHUB_URL}/users/${import.meta.env.PUBLIC_GITHUB_LOGIN}/repos`, {
     headers: {
       Accept: 'application/json',
       Authorization: import.meta.env.GITHUB_TOKEN,
     },
   });
-  return (await response.json()) as RepoProps[];
+  return (await res.json()) as RepoProps[];
 });
 
 export default component$(() => {
   const reposSignal = useRepos();
   return (
     <div class="">
+
       <Navbar />
       <Header title="Repositories" />
-      <div class="text-3xl p-4">
+      <ul>
         {
           reposSignal.value.map(repo => (
-            <div key={repo.id} >
+            <li key={repo.id} >
               <Link href={`/repositories/${repo.name}`}>{repo.name}</Link>
-            </div>
+            </li>
           ))
         }
-      </div>
+      </ul>
     </div>
   );
 });
