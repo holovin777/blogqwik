@@ -37,7 +37,7 @@ export default component$<NavbarProps>((props) => {
                             </li>
                         </div>
                 }
-                <li style="float:right; width: 10%; ">
+                <li style="float:right; width: 20%; ">
                     <Link
                         onClick$={() => menuVisibleSignal.value = !menuVisibleSignal.value}
                     >
