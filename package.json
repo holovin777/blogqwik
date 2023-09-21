@@ -20,7 +20,8 @@
     "preview": "qwik build preview && vite preview --open",
     "start": "vite --open --mode ssr",
     "start0": "vite --open --mode ssr --host 0.0.0.0",
-    "qwik": "qwik"
+    "qwik": "qwik",
+    "prod": "vercel --prod"
   },
   "devDependencies": {
     "@builder.io/qwik": "^1.2.11",
