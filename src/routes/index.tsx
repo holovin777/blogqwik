@@ -22,7 +22,9 @@ export default component$(() => {
         login={userSignal.value.login}
         avatar_url={userSignal.value.avatar_url}
       />
-      <Header title={userSignal.value.bio} />
+      {userSignal.value.bio &&
+        <Header title={userSignal.value.bio} />
+      }
     </div>
   );
 });
