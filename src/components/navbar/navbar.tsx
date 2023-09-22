@@ -32,9 +32,9 @@ export default component$<NavbarProps>((props) => {
                             </Link>
                         </li>
                 }
-                <li style="display:inline">
+                <li style="display:inline;">
                     <Link
-                    style="float: right"
+                        style="text-align: right;"
                         onClick$={() => menuVisibleSignal.value = !menuVisibleSignal.value}
                     >
                         Menu

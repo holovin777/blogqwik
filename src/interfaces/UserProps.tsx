@@ -1,12 +1,12 @@
 export default interface UserProps {
     login: string;
-    avatar_url: string;
+    avatar_url?: string;
     html_url: string;
-    followers_url: string;
-    following_url: string;
-    repos_url: string;
+    followers_url?: string;
+    following_url?: string;
+    repos_url?: string;
     name: string;
-    blog: string;
+    blog?: string;
     location: string;
     email: string;
     bio: string;
