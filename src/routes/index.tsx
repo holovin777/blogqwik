@@ -17,7 +17,7 @@ export const useUser = routeLoader$(async () => {
 export default component$(() => {
   const userSignal = useUser();
   return (
-    <div class="">
+    <div>
       <Navbar
         login={userSignal.value.login}
         avatar_url={userSignal.value.avatar_url}
