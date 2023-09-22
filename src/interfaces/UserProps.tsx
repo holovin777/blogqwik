@@ -8,12 +8,12 @@ export default interface UserProps {
     name: string;
     blog?: string;
     location: string;
-    email: string;
-    bio: string;
-    twitter_username: string;
-    public_repos: number;
-    followers: number;
-    following: number;
-    created_at: string;
-    updated_at: string;
+    email?: string;
+    bio?: string;
+    twitter_username?: string;
+    public_repos?: number;
+    followers?: number;
+    following?: number;
+    created_at?: string;
+    updated_at?: string;
 }
