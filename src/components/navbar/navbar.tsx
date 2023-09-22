@@ -10,43 +10,39 @@ export default component$<NavbarProps>((props) => {
     return (
 
         <nav>
-
             <ul>
                 {
                     props.login ?
-                        <div>
-                            <li style="width: 50%; ">
-                                <Link
-                                    href="/"
-                                >
-                                    <Image src={props.avatar_url} width={20} height={20} alt="Your Company" /> {props.login}
-                                </Link>
-                            </li>
-                        </div>
+                        <li style="display: inline">
+                            <Link
+                                href="/"
+                            >
+                                <Image src={props.avatar_url} width={20} height={20} alt="Your Company" /> {props.login}
+                            </Link>
+                        </li>
                         :
-                        <div class="svg">
-                            <li style="width: 50%; ">
-                                <Link
-                                    href="/"
-                                >
-                                    <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                        <title>Thurgauer Kantonalbank</title>
-                                        <path d="M21.872 2.262H10.775l-6.14 9.743 6.14 9.771h11.097l-6.135-9.77 6.135-9.744zM0 .297v23.406h24V.297H0zm23.057 22.486L.943 22.778V1.228h22.109l.005 21.555z" />
-                                    </svg>
-                                </Link>
-                            </li>
-                        </div>
+                        <li style="display: inline">
+                            <Link
+                                href="/"
+                            >
+                                <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <title>Thurgauer Kantonalbank</title>
+                                    <path d="M21.872 2.262H10.775l-6.14 9.743 6.14 9.771h11.097l-6.135-9.77 6.135-9.744zM0 .297v23.406h24V.297H0zm23.057 22.486L.943 22.778V1.228h22.109l.005 21.555z" />
+                                </svg>
+                            </Link>
+                        </li>
                 }
-                <li style="float:right; width: 20%; ">
+                <li style="display:inline">
                     <Link
+                    style="float: right"
                         onClick$={() => menuVisibleSignal.value = !menuVisibleSignal.value}
                     >
                         Menu
                     </Link>
                 </li>
             </ul>
-
-            {menuVisibleSignal.value &&
+            {
+                menuVisibleSignal.value &&
                 <ul>
                     <li>
                         <Link
@@ -71,7 +67,6 @@ export default component$<NavbarProps>((props) => {
                     </li>
                 </ul>
             }
-        </nav >
-
-    );
+        </nav>
+    )
 });

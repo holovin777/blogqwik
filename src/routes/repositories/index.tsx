@@ -17,15 +17,14 @@ export const useRepos = routeLoader$(async () => {
 export default component$(() => {
   const reposSignal = useRepos();
   return (
-    <div class="">
-
+    <div>
       <Navbar />
       <Header title="Repositories" />
-      <ul>
+      <ul style="background-color: #000000;">
         {
           reposSignal.value.map(repo => (
-            <li key={repo.id} >
-              <Link href={`/repositories/${repo.name}`}>{repo.name}</Link>
+            <li key={repo.id} style="text-align: center;">
+              <Link style="display: block; background-color: #333333; border-radius: 10px;" href={`/repositories/${repo.name}`}>{repo.name}</Link>
             </li>
           ))
         }
