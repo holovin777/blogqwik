@@ -1,7 +1,6 @@
 import { component$ } from "@builder.io/qwik";
 import { routeLoader$, type DocumentHead, Link } from "@builder.io/qwik-city";
 import Header from "~/components/header/header";
-import Navbar from "~/components/navbar/navbar";
 import type RepoProps from "~/interfaces/RepoProps";
 
 export const useRepos = routeLoader$(async () => {
@@ -18,7 +17,6 @@ export default component$(() => {
   const reposSignal = useRepos();
   return (
     <div>
-      <Navbar />
       <Header title="Repositories" />
       <ul style="background-color: #000000;">
         {

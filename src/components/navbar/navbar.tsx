@@ -5,6 +5,7 @@ import { Image } from "@unpic/qwik";
 
 export default component$<NavbarProps>((props) => {
 
+    const userSignal = props.userSignal;
     const menuVisibleSignal = useSignal(false);
 
     return (
@@ -12,12 +13,13 @@ export default component$<NavbarProps>((props) => {
         <nav>
             <ul>
                 {
-                    props.login ?
+                    userSignal.value.login ?
                         <li style="display: inline">
                             <Link
                                 href="/"
                             >
-                                <Image src={props.avatar_url} width={20} height={20} alt="Your Company" /> {props.login}
+                                <Image src={userSignal.value.avatar_url} width={20} height={20} alt="Your Company" />
+                                {userSignal.value.login}
                             </Link>
                         </li>
                         :
@@ -47,6 +49,7 @@ export default component$<NavbarProps>((props) => {
                     <li>
                         <Link
                             href="/"
+                            onClick$={() => menuVisibleSignal.value = !menuVisibleSignal.value}
                         >
                             Home
                         </Link>
@@ -54,6 +57,7 @@ export default component$<NavbarProps>((props) => {
                     <li>
                         <Link
                             href="/repositories"
+                            onClick$={() => menuVisibleSignal.value = !menuVisibleSignal.value}
                         >
                             Repositories
                         </Link>
@@ -61,6 +65,7 @@ export default component$<NavbarProps>((props) => {
                     <li>
                         <Link
                             href="/about"
+                            onClick$={() => menuVisibleSignal.value = !menuVisibleSignal.value}
                         >
                             About
                         </Link>
