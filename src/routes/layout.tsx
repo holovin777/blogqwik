@@ -1,5 +1,7 @@
 import { component$, Slot } from "@builder.io/qwik";
-import type { RequestHandler } from "@builder.io/qwik-city";
+import { routeLoader$, type RequestHandler } from "@builder.io/qwik-city";
+import Navbar from "~/components/navbar/navbar";
+import type UserProps from "~/interfaces/UserProps";
 
 export const onGet: RequestHandler = async ({ cacheControl }) => {
   // Control caching for this request for best performance and to reduce hosting costs:
@@ -12,9 +14,21 @@ export const onGet: RequestHandler = async ({ cacheControl }) => {
   });
 };
 
+export const useUser = routeLoader$(async () => {
+  const res = await fetch(`https://${import.meta.env.PUBLIC_GITHUB_URL}/users/${import.meta.env.PUBLIC_GITHUB_LOGIN}`, {
+    headers: {
+      Accept: 'application/json',
+      Authorization: import.meta.env.GITHUB_TOKEN,
+    },
+  });
+  return (await res.json()) as UserProps;
+});
+
 export default component$(() => {
+  const userSignal = useUser();
   return (
     <div>
+      <Navbar userSignal={userSignal} />
       <Slot />
     </div>
   );

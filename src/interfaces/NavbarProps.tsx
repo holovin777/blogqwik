@@ -1,4 +1,5 @@
+import { type Signal } from "@builder.io/qwik";
+
 export default interface Navbar {
-    login?: string;
-    avatar_url?: string;
+    userSignal: Readonly<Signal>
 }

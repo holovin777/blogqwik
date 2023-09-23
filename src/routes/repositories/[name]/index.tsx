@@ -1,7 +1,6 @@
 import { component$ } from "@builder.io/qwik";
 import { routeLoader$ } from "@builder.io/qwik-city";
 import { marked } from 'marked';
-import Navbar from "~/components/navbar/navbar";
 
 export const useRepoDescription = routeLoader$(async (requestEvent) => {
     const res = await fetch(
@@ -21,7 +20,6 @@ export default component$(() => {
     const signalRepoDescription = useRepoDescription();
     return (
         <div>
-            <Navbar />
             <div class="md" dangerouslySetInnerHTML={`${signalRepoDescription.value}`}></div>
         </div>
     );
