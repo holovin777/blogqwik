@@ -46,26 +46,29 @@ export default component$<NavbarProps>((props) => {
             {
                 menuVisibleSignal.value &&
                 <ul>
-                    <li>
+                    <li
+                        onClick$={() => menuVisibleSignal.value = !menuVisibleSignal.value}
+                    >
                         <Link
                             href="/"
-                            onClick$={() => menuVisibleSignal.value = !menuVisibleSignal.value}
                         >
                             Home
                         </Link>
                     </li>
-                    <li>
+                    <li
+                        onClick$={() => menuVisibleSignal.value = !menuVisibleSignal.value}
+                    >
                         <Link
                             href="/repositories"
-                            onClick$={() => menuVisibleSignal.value = !menuVisibleSignal.value}
                         >
                             Repositories
                         </Link>
                     </li>
-                    <li>
+                    <li
+                        onClick$={() => menuVisibleSignal.value = !menuVisibleSignal.value}
+                    >
                         <Link
                             href="/about"
-                            onClick$={() => menuVisibleSignal.value = !menuVisibleSignal.value}
                         >
                             About
                         </Link>
