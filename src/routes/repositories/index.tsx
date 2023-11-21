@@ -18,11 +18,11 @@ export default component$(() => {
   return (
     <div>
       <Header title="Repositories" />
-      <ul style="background-color: #000000;">
+      <ul class="ul" style="background-color: #000000;">
         {
           reposSignal.value.map(repo => (
-            <li key={repo.id} style="text-align: center;">
-              <Link style="display: block; background-color: #333333; border-radius: 10px;" href={`/repositories/${repo.name}`}>{repo.name}</Link>
+            <li class="li" key={repo.id} style="text-align: center;">
+              <Link class="a" style="display: block; background-color: #333333; border-radius: 10px;" href={`/repositories/${repo.name}`}>{repo.name}</Link>
             </li>
           ))
         }

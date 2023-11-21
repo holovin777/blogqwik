@@ -29,18 +29,18 @@ body {
   color: white;
 }
 
-ul {
+.ul {
   background-color: #333333;
   list-style-type: none;
   margin: 0;
   padding: 10px;
 }
 
-li {
+.li {
   margin: 10px;
 }
 
-a {
+.a {
   color: cornflowerblue;
   padding: 10px;
   cursor: pointer;
@@ -48,11 +48,11 @@ a {
   margin: 8px;
 }
 
-a:hover {
+.a:hover {
   background-color: #111111;
 }
 
-svg {
+.svg {
   right: 5px;
   top: 0;
   bottom: 0;
