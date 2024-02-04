@@ -71,5 +71,8 @@ body {
 }
 
 pre {
-  overflow-x: scroll;
+  padding: 15px;
+  background-color: #111111;
+  overflow-x: auto;
+  border-radius: 15px;
 }
