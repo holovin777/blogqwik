@@ -76,3 +76,15 @@ pre {
   overflow-x: auto;
   border-radius: 15px;
 }
+
+h1 {
+  padding-bottom: .3em;
+  font-size: 2em;
+  border-bottom: 1px solid white;
+}
+
+h2 {
+  padding-bottom: .3em;
+  font-size: 2em;
+  border-bottom: 1px solid grey;
+}
